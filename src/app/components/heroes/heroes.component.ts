@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroesService, Heroe } from '../../servicios/heroes.service';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-heroes',
@@ -6,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroesComponent implements OnInit {
 
-  constructor() { }
+  heroes:Heroe[] = []; 
 
-  ngOnInit(): void {
+  constructor( private _heroesService: HeroesService) {
+    console.log("Constructor");
+  }
+
+  ngOnInit(): void { //renderizar la pagina
+    this.heroes = this._heroesService.getHeroes();
+
+    console.log( this.heroes );
   }
 
 }

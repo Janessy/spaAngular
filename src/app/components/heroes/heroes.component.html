@@ -3,19 +3,35 @@
 
 <div class="card-columns">
 
-    <div class="card">
+    <!-- <div class="card" *ngFor="let heroe of heroes">
 
-        <img src="assets/img/aquaman.png" class="card-img-top img-fluid" alt="Aquaman">
+        <img [src]="heroe.img" class="card-img-top img-fluid" [alt]="heroe.nombre">
+      
+        <div  class="card-body">
+            <h5 class="card-title">{{ heroe.nombre }}</h5>
+            <p class="card-text">{{ heroe.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
 
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-            <button type="button" class="btn btn-outline-primary w-100">
+            <button mat-raised-button color="primary" class="w-100">
                 Ver más...
             </button>
         </div>
 
-    </div>
+    </div> -->
+
+    <mat-card class="card" *ngFor="let heroe of heroes">
+
+        <img [src]="heroe.img" class="card-img-top img-fluid" [alt]="heroe.nombre">
+        
+        <mat-card-content>
+            <h5 class="card-title">{{ heroe.nombre }}</h5>
+            <p>{{heroe.bio}}</p>
+            <p><small class="text-muted">{{ heroe.aparicion }}</small></p>
+            <button mat-raised-button color="primary" class="w-100">
+                Ver más...
+            </button>
+        </mat-card-content>
+
+    </mat-card>
+
 </div>
