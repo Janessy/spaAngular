@@ -2,28 +2,7 @@
 <hr>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-
-    <div class="col" *ngFor="let heroe of heroes; let i = index">
-
-        <mat-card class="animated fadeIn fast mb-4">
-                        
-            <mat-card-header class="d-flex flex-column-reverse">
-                <img mat-card-image [src]="heroe.img"  [alt]="heroe.nombre">
-                <mat-card-title>{{ heroe.nombre }}</mat-card-title>
-            </mat-card-header>
-            
-            <mat-card-content>
-                <p>{{heroe.bio}}</p>
-                <p><small >{{ heroe.aparicion }}</small></p>
-                <button (click)="verHeroe(i)" mat-raised-button color="primary" class="w-100">
-                    Ver más...
-                </button>
-                <!-- <a [routerLink]="['/heroe',i]" routerLinkActive="router-link-active"  mat-raised-button color="primary" class="w-100">
-                    Ver más link...
-                </a> -->
-            </mat-card-content>
-
-        </mat-card>
-    </div>
+    
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe($event)" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index"></app-heroe-tarjeta>
 
 </div>
